@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+
+<html lang="en-us">
+
+<head>
+	<title>Crystal Collector</title>
+	<meta charset="UTF-8">
+</head>
+
+<body>
+	<h1>Crystals Collector</h1>
+
+	<div id="instructions">
+		
+		<p>You will be given a random number at the start of the competition.</p>
+		<br>
+		<p>There are four crystals below. By clicking on a crystal you'll add a specific amount of points to your total score.</p>
+		<br>
+		<p>You win the game by matching your total score to randomly generated number. You lose the game if your total score goes higher than the randomly generated number.</p>
+		<br>
+		<p>The value of each crystal is hidden until it's clicked.</p>
+		<br>
+		<p>Each time the game starts, the value of the crystals will change and the random number will change.</p>
+		<br>
+	</div>
+
+	<div id="random-number"></div>
+
+	<div class="win-loss">
+		<div id="wins"></div>
+		<div id="losses"></div>
+	</div>
+
+	<div class="crystals">
+		<button id="red">Red</button>
+		<button id="blue">Blue</button>
+		<button id="yellow">Yellow</button>
+		<button id="green">Green</button>
+	</div>
+
+	<div id="your-score-is"></div>
+
+	<div id="score"></div>
+
+	<script type="text/javascript" src="https://code.jquery.com/jquery-2.2.0.js"></script>
+
+	<script> 
+
+		//define variables
+		//generate random number for id:random-number
+		//function to beging game: generate random number for id:random-number and assign random number to buttons
+		//make crystal buttons clickable; when clicked, add/append those points to score
+		//also when clicked, check to see if game is still going, is won, or is lost; if won or lost, restart
+
+		// $(document).ready(beginGame() {
+
+		var randomNumber = 0;
+		var crystalRed = 0;
+		var crystalBlue = 0;
+		var crystalYellow = 0;
+		var crystalGreen = 0;
+		var playerScore = 0;
+		var wins = 0;
+		var losses = 0;
+		var gameOver = false;
+		var didYouLose = false;
+
+		function beginGame() {
+			$("#wins").html("Wins: " + wins);
+			$("#losses").html("Losses: " + losses);
+
+			gameOver = false;
+			playerScore = 0;
+				$("#score").html("<h3>" + playerScore + "</h3>");
+			randomNumber = Math.floor(Math.random() * 101)+19;
+				$("#random-number").html("<h3>" + randomNumber + "</h3>");
+			crystalRed = Math.floor(Math.random() * 11) + 1;
+			crystalBlue = Math.floor(Math.random() * 11) + 1;
+			crystalYellow = Math.floor(Math.random() * 11) + 1;
+			crystalGreen = Math.floor(Math.random() * 11) + 1;
+		}
+
+		$("#red").on("click", goRed);
+			function goRed(){
+			if (gameOver = false){
+				playerScore = playerScore + crystalRed;
+				winOrLossCheck();
+				$("#score").html(playerScore);
+		};
+	}
+
+		$("#blue").on("click", goBlue);
+			function goBlue(){
+			if (gameOver = false){
+				playerScore = playerScore + crystalBlue;
+				winOrLossCheck();
+				$("#score").html(playerScore);
+		};
+	}
+
+		$("#yellow").on("click", goYellow);
+			function goYellow(){
+			if (gameOver = false){
+				playerScore = playerScore + crystalYellow;
+				winOrLossCheck();
+				$("#score").html(playerScore);
+		};
+	}
+
+		$("#green").on("click", goGreen);
+			function goGreen(){
+			if (gameOver = false){
+				playerScore = playerScore + crystalGreen;
+				winOrLossCheck();
+				$("#score").html(playerScore);
+		};
+	}
+
+		function winOrLossCheck(){
+			$("#score").html(playerScore);
+			if (playerScore = randomNumber) {
+				gameOver = true;
+				alert("Winner!");
+				wins++;
+			}
+
+			else if (playerScore > randomNumber) {
+				Playerloses = true;
+				didYouLose = true;
+				alert("Loser!");
+				losses++;
+			};
+						
+			if (gameOver){
+				$("#wins").html("Wins: " + wins);
+				$("#losses").html("Losses: " + losses);
+				setTimeout(beginGame, 1000);
+			}
+		}
+
+		beginGame();
+
+// }); // closes document.ready
+	</script>
+
+</body>
+
+</html>
