@@ -52,8 +52,6 @@
 		//make crystal buttons clickable; when clicked, add/append those points to score
 		//also when clicked, check to see if game is still going, is won, or is lost; if won or lost, restart
 
-		// $(document).ready(beginGame() {
-
 		var randomNumber = 0;
 		var crystalRed = 0;
 		var crystalBlue = 0;
@@ -118,10 +116,12 @@
 
 		function winOrLossCheck(){
 			$("#score").html(playerScore);
-			if (playerScore = randomNumber) {
+			if (playerScore == randomNumber) {
 				gameOver = true;
 				alert("Winner!");
 				wins++;
+				$("#wins").html("Wins: " + wins);
+				setTimeout(beginGame, 1000);
 			}
 
 			else if (playerScore > randomNumber) {
@@ -129,18 +129,12 @@
 				didYouLose = true;
 				alert("Loser!");
 				losses++;
-			};
-						
-			if (gameOver){
-				$("#wins").html("Wins: " + wins);
 				$("#losses").html("Losses: " + losses);
 				setTimeout(beginGame, 1000);
-			}
-		}
+			};
 
 		beginGame();
 
-// }); // closes document.ready
 	</script>
 
 </body>
