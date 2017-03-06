@@ -12,7 +12,7 @@
 
 	<div id="instructions">
 		
-		<p>You will be given a random number at the start of the game.</p>
+		<p>You will be given a random number at the start of the competition.</p>
 		<br>
 		<p>There are four crystals below. By clicking on a crystal you'll add a specific amount of points to your total score.</p>
 		<br>
@@ -82,7 +82,7 @@
 
 		$("#red").on("click", goRed);
 			function goRed(){
-			if (gameOver = false){
+			if (gameOver == false){
 				playerScore = playerScore + crystalRed;
 				winOrLossCheck();
 				$("#score").html(playerScore);
@@ -91,7 +91,7 @@
 
 		$("#blue").on("click", goBlue);
 			function goBlue(){
-			if (gameOver = false){
+			if (gameOver == false){
 				playerScore = playerScore + crystalBlue;
 				winOrLossCheck();
 				$("#score").html(playerScore);
@@ -100,7 +100,7 @@
 
 		$("#yellow").on("click", goYellow);
 			function goYellow(){
-			if (gameOver = false){
+			if (gameOver == false){
 				playerScore = playerScore + crystalYellow;
 				winOrLossCheck();
 				$("#score").html(playerScore);
@@ -109,7 +109,7 @@
 
 		$("#green").on("click", goGreen);
 			function goGreen(){
-			if (gameOver = false){
+			if (gameOver == false){
 				playerScore = playerScore + crystalGreen;
 				winOrLossCheck();
 				$("#score").html(playerScore);
