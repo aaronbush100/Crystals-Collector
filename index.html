@@ -46,12 +46,6 @@
 
 	<script> 
 
-		//define variables
-		//generate random number for id:random-number
-		//function to beging game: generate random number for id:random-number and assign random number to buttons
-		//make crystal buttons clickable; when clicked, add/append those points to score
-		//also when clicked, check to see if game is still going, is won, or is lost; if won or lost, restart
-
 		var randomNumber = 0;
 		var crystalRed = 0;
 		var crystalBlue = 0;
@@ -116,7 +110,7 @@
 
 		function winOrLossCheck(){
 			$("#score").html(playerScore);
-			if (playerScore == randomNumber) {
+			if (playerScore === randomNumber) {
 				gameOver = true;
 				alert("Winner!");
 				wins++;
@@ -132,9 +126,12 @@
 				$("#losses").html("Losses: " + losses);
 				setTimeout(beginGame, 1000);
 			};
+						
+			}
 
 		beginGame();
 
+// }); // closes document.ready
 	</script>
 
 </body>
